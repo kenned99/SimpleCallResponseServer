@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "EncryptionClass/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/EncryptionClass.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EncryptionClass.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "EncryptionClass/1.0.0": {
+      "type": "project",
+      "path": "../../SimpleCallResponse/EncryptionClass/EncryptionClass.csproj",
+      "msbuildProject": "../../SimpleCallResponse/EncryptionClass/EncryptionClass.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "EncryptionClass >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\kej\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\kej\\source\\repos\\SimpleCallResponse\\EncryptionClass\\EncryptionClass.csproj": {
+              "projectPath": "C:\\Users\\kej\\source\\repos\\SimpleCallResponse\\EncryptionClass\\EncryptionClass.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

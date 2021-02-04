@@ -4,10 +4,13 @@ C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\bin\
 C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\bin\Debug\netcoreapp3.1\SimpleCallResponseServer.runtimeconfig.dev.json
 C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\bin\Debug\netcoreapp3.1\SimpleCallResponseServer.dll
 C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\bin\Debug\netcoreapp3.1\SimpleCallResponseServer.pdb
-C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\obj\Debug\netcoreapp3.1\SimpleCallResponseServer.csprojAssemblyReference.cache
 C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\obj\Debug\netcoreapp3.1\SimpleCallResponseServer.AssemblyInfoInputs.cache
 C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\obj\Debug\netcoreapp3.1\SimpleCallResponseServer.AssemblyInfo.cs
 C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\obj\Debug\netcoreapp3.1\SimpleCallResponseServer.csproj.CoreCompileInputs.cache
 C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\obj\Debug\netcoreapp3.1\SimpleCallResponseServer.dll
 C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\obj\Debug\netcoreapp3.1\SimpleCallResponseServer.pdb
 C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\obj\Debug\netcoreapp3.1\SimpleCallResponseServer.genruntimeconfig.cache
+C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\bin\Debug\netcoreapp3.1\EncryptionClass.dll
+C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\bin\Debug\netcoreapp3.1\EncryptionClass.pdb
+C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\obj\Debug\netcoreapp3.1\SimpleCallResponseServer.csprojAssemblyReference.cache
+C:\Users\kej\source\repos\SimpleCallResponseServer\SimpleCallResponseServer\obj\Debug\netcoreapp3.1\SimpleCallResponseServer.csproj.CopyComplete

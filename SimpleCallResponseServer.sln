@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCallResponseServer", "SimpleCallResponseServer\SimpleCallResponseServer.csproj", "{CC0AFC10-C4D9-49CF-BD71-A690E0091B9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCallResponseServer", "SimpleCallResponseServer\SimpleCallResponseServer.csproj", "{CC0AFC10-C4D9-49CF-BD71-A690E0091B9C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncryptionClass", "..\SimpleCallResponse\EncryptionClass\EncryptionClass.csproj", "{267B95C7-8C3C-4EF8-9BBD-3B5C94AABBF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{CC0AFC10-C4D9-49CF-BD71-A690E0091B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC0AFC10-C4D9-49CF-BD71-A690E0091B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC0AFC10-C4D9-49CF-BD71-A690E0091B9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{267B95C7-8C3C-4EF8-9BBD-3B5C94AABBF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{267B95C7-8C3C-4EF8-9BBD-3B5C94AABBF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{267B95C7-8C3C-4EF8-9BBD-3B5C94AABBF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{267B95C7-8C3C-4EF8-9BBD-3B5C94AABBF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

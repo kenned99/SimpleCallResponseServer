@@ -3,11 +3,15 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Collections.Generic;
+using EncryptionClass;
 
 namespace SimpleCallResponseServer
 {
     class Program
     {
+        public static Encryption Encrypt = new Encryption();
+        public static byte PrivateKey = 15;
+
         public static List<TcpClient> clients = new List<TcpClient>();
         static void Main(string[] args)
         {
@@ -18,15 +22,16 @@ namespace SimpleCallResponseServer
             TcpListener listener = new TcpListener(localEndpoint);
             listener.Start();
 
-            Console.WriteLine("Så venter vi jo bar\'");
+            //Console.WriteLine("Så venter vi jo bar\'");
             AcceptClients(listener);
 
             bool isRunning = true;
             while (isRunning)
             {
-                Console.WriteLine("Skriv noget makker");
+                Console.WriteLine("Skriv");
                 string message = Console.ReadLine();
                 byte[] buffer = Encoding.UTF8.GetBytes(message);
+                Encrypt.EncryptByte(buffer, PrivateKey);
 
                 foreach (TcpClient client in clients)
                 {
@@ -58,6 +63,7 @@ namespace SimpleCallResponseServer
             while (true)
             {
                 int read = await stream.ReadAsync(buffer, 0, buffer.Length);
+                Encrypt.DecryptByte(buffer, PrivateKey);
                 string text = Encoding.UTF8.GetString(buffer, 0, read);
                 Console.WriteLine($"Client writes: {text}");
                 if (text.ToLower() == "c")
