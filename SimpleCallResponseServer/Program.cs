@@ -13,7 +13,7 @@ namespace SimpleCallResponseServer
         public static Encryption Encrypt = new Encryption();
         public static byte PrivateKey = 15;
         public static BigInteger pkey = 9081230891108293;
-        public static BigInteger key;
+        public static byte[] key;
         public static BigInteger pgkey = 13;
         public static BigInteger gkey = 12;
         public static BigInteger nkey = 11231231232;
@@ -31,7 +31,6 @@ namespace SimpleCallResponseServer
             TcpListener listener = new TcpListener(localEndpoint);
             listener.Start();
 
-            //Console.WriteLine("Så venter vi jo bar\'");
             AcceptClients(listener);
 
             bool isRunning = true;
@@ -40,7 +39,7 @@ namespace SimpleCallResponseServer
                 Console.WriteLine("Skriv");
                 string message = Console.ReadLine();
                 byte[] buffer = Encoding.UTF8.GetBytes(message);
-                Encrypt.EncryptByte(buffer, PrivateKey);
+                Encrypt.EncryptByte(buffer, key);
 
                 foreach (TcpClient client in clients)
                 {
@@ -68,7 +67,7 @@ namespace SimpleCallResponseServer
                 clients.Add(client);
                 NetworkStream stream = client.GetStream();
 
-                byte[] keybuffer = CreatePublicKey(pkey, gkey, nkey);
+                byte[] keybuffer = EncryptionClass.Encryption.CreatePublicKey(pkey, gkey, nkey);
                 stream.Write(keybuffer, 0, keybuffer.Length);
 
                 byte[] buffer = new byte[256];
@@ -76,24 +75,11 @@ namespace SimpleCallResponseServer
 
                 byte[] keyfromclient = new byte[read];
                 Array.Copy(buffer, 0, keyfromclient, 0, read);
-                key = CreatePrivateKey(pkey, new BigInteger(keyfromclient), nkey);
+                key = EncryptionClass.Encryption.CreatePrivateKey(pkey, new BigInteger(keyfromclient), nkey);
                 Console.WriteLine(key);
                 RecieveMessages(stream);
             }
         }
-
-
-        /* public static async void AcceptClients(TcpListener listener)
-         {
-             while (true)
-             {
-                 TcpClient client = await listener.AcceptTcpClientAsync();
-                 clients.Add(client);
-                 NetworkStream stream = client.GetStream();
-                 RecieveMessages(stream);
-
-             }
-         }*/
 
         public static async void RecieveMessages(NetworkStream stream)
         {
@@ -101,7 +87,7 @@ namespace SimpleCallResponseServer
             while (true)
             {
                 int read = await stream.ReadAsync(buffer, 0, buffer.Length);
-                Encrypt.DecryptByte(buffer, PrivateKey);
+                Encrypt.DecryptByte(buffer, key);
                 string text = Encoding.UTF8.GetString(buffer, 0, read);
                 Console.WriteLine($"Client writes: {text}");
                 if (text.ToLower() == "c")
@@ -110,39 +96,5 @@ namespace SimpleCallResponseServer
                 }
             }
         }
-
-        public static byte[] CreatePublicKey(BigInteger privkey, BigInteger genkey, BigInteger norkey) 
-        {
-           /* BigInteger pkey = new BigInteger(Int32.Parse(privkey)); // private key
-            BigInteger gkey = new BigInteger(Int32.Parse(genkey)); // i anden
-            BigInteger nkey = new BigInteger(Int32.Parse(norkey)); // MOD*/
-
-            BigInteger mykey = BigInteger.ModPow(genkey, privkey, norkey);
-            return mykey.ToByteArray(true);
-        }
-
-        public static BigInteger CreatePrivateKey(BigInteger privatekey, BigInteger keyfromclient, BigInteger norkey) 
-        {
-           /* BigInteger pkey = new BigInteger(privatekey3);
-            BigInteger mkey = new BigInteger(meutralkey);
-            BigInteger skey = new BigInteger(samekey);*/
-
-            return key = BigInteger.ModPow(keyfromclient, privatekey, norkey);
-        }
-
-       /* public byte[] CreatePublicKey(string privatekey2, string generalkey) 
-        {
-            BigInteger nkey = new BigInteger(privatekey2);
-            int nkey = Int32.Parse(privatekey2);
-            int gkey = Int32.Parse(generalkey);
-           // pnkey = nkey * gkey;
-            return BitConverter.GetBytes(nkey * gkey);
-        }
-        
-        public string allkey(int publickey, int ngkey) 
-        {
-            return (ngkey * publickey).ToString();
-        }
-       */
     }
 }
