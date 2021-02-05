@@ -63,6 +63,7 @@ namespace SimpleCallResponseServer
         {
             while (true)
             {
+                //Opretter conn
                 TcpClient client = await listener.AcceptTcpClientAsync();
                 clients.Add(client);
                 NetworkStream stream = client.GetStream();
